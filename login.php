@@ -49,7 +49,7 @@ if(isset($_POST["btn"])){
   $host = "localhost";  
   $user = "root";  
   $password = '';  
-  $db_name = "darkknightlogin";  
+  $db_name = "markmgmt";  
     
   $con = mysqli_connect($host, $user, $password, $db_name);  
   if(mysqli_connect_errno()) {  
@@ -72,7 +72,7 @@ if(isset($_POST["btn"])){
     echo "<script>console.log('".$password."');</script>";
     echo "<script>console.log('".$usertype."');</script>";
     
-    $sql = "select *from users where username = '$username' and password = '$password'";  
+    $sql = "select *from logininfo where username = '$username' and password = '$password'";  
     $result = mysqli_query($con, $sql);  
     $row = mysqli_fetch_array($result, MYSQLI_ASSOC);  
     $count = mysqli_num_rows($result); 
