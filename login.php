@@ -10,7 +10,7 @@ session_start()
   
 </head>
   <body  >
-    <div id="header"><img src='logo.png' alt=""></div>
+    <div id="header"><img src='' alt=""></div>
     <h2 style="text-align:center;">Marks Management System</h2>
   <div  id = "frm" class ="center">
     <h1>Login</h1>
@@ -62,43 +62,59 @@ if(isset($_POST["btn"])){
   $usertype = $_POST['type'];
 
     
-      //to prevent from mysqli injection  
-      $username = stripcslashes($username);  
-      $password = stripcslashes($password);  
-      $username = mysqli_real_escape_string($con, $username);  
-      $password = mysqli_real_escape_string($con, $password);  
+    //to prevent from mysqli injection  
+    $username = strtolower(stripcslashes($username));  
+    $password = strtolower(stripcslashes($password));
+    $usertype=strtolower($usertype); 
+    $username = mysqli_real_escape_string($con, $username);  
+    $password = mysqli_real_escape_string($con, $password);  
+    echo "<script>console.log('".$username."');</script>";
+    echo "<script>console.log('".$password."');</script>";
+    echo "<script>console.log('".$usertype."');</script>";
     
-      $sql = "select *from login where Username = '$username' and Pass = '$password'";  
-      $result = mysqli_query($con, $sql);  
-      $row = mysqli_fetch_array($result, MYSQLI_ASSOC);  
-      $count = mysqli_num_rows($result);  
-        
+    $sql = "select *from users where username = '$username' and password = '$password'";  
+    $result = mysqli_query($con, $sql);  
+    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);  
+    $count = mysqli_num_rows($result); 
+    
+            
       if($count == 1){ 
-        if($usertype=='Admin'){ 
-          if ($username== 'Admin'){
-              // header ("Location: se.html");   
+        if($usertype=='admin'){ 
+          if ($username== 'admin'){
+              header ("Location: adminhome.html");   
           }
           else{
-            // header ("Location: login1.php");  
+            header ("Location: relogin.php");  
           }
         }
-        else{
-          if($username!='Admin'){
-              // $_SESSION["name"]=$_POST['user'];
-              // header ("Location: dashboard.php");  
+        else if($usertype=='Instructor'){
+          if($username!='admin'){
+              $_SESSION["name"]=$_POST['user'];
+              header ("Location: instructorhome.php");  
           }
           else{  
         
-            // header ("Location: login1.php");  
-        }   
+            header ("Location: relogin.php");  
+        } 
         }
+        else{
+          if($username!='admin'){
+            $_SESSION["name"]=$_POST['user'];
+            header ("Location: studenthome.php");  
+        }
+        else{  
+      
+          header ("Location: relogin.php");  
+          
+        }  
         
       }  
-      else{  
-        
-          // header ("Location: login1.php");  
-      }     
+     
 }
-
+else{  
+        
+  header ("Location: relogin.php");  
+}     
+}
 
 ?>
