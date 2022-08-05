@@ -19,7 +19,10 @@
     
 
 }
-
+.greeting{
+    margin-top: 40px;
+    margin-left:10px ;
+}
 .navbar{   
     border-bottom: 1px solid rgb(0, 0, 0);  
     padding: .5em 1em;  

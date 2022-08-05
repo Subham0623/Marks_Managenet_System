@@ -1,14 +1,20 @@
+
+:root {
+    --letter: #00203FFF;
+    --word: #ADEFD1FF;
+    --button: rgb(87, 198, 148);
+  }
 .chat-bar-collapsible {
-    position: left;
-    bottom: 5px;
-    right: 40px;
+    position: fixed;
+    bottom: 0;
+    right: 50px;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     
     
 }
 
 .collapsible {
-    background-color: #ADEFD1FF;
+    background-color: var(--word) ;
     color: white;
     cursor: pointer;
     padding: 18px;
@@ -40,13 +46,13 @@
 }
 
 .outer-container {
-    min-height: 400px;
+    min-height: 500px;
     bottom: 0%;
     position: relative;
 }
 
 .chat-container {
-    max-height: 400px;
+    max-height: 500px;
     width: 100%;
     position: absolute;
     bottom: 0;
@@ -62,6 +68,7 @@
 .chat-bar-input-block {
     display: flex;
     float: left;
+    
     box-sizing: border-box;
     justify-content: space-between;
     width: 100%;
@@ -113,9 +120,9 @@
 }
 
 .userText span {
-    line-height: 1.5em;
+    line-height: 2.5em;
     display: inline-block;
-    background: #ADEFD1FF;
+    background: var(--word);
     padding: 10px;
     border-radius: 8px;
     border-bottom-right-radius: 2px;
@@ -137,10 +144,12 @@
     display: inline-block;
     background: #e0e0e0;
     padding: 10px;
-    border-radius: 8px;
-    border-bottom-left-radius: 2px;
+    border-radius: 10px;
+    border-bottom-left-radius: 5px;
     max-width: 80%;
     margin-left: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
     animation: floatup .5s forwards
 }
 
