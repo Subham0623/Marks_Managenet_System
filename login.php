@@ -7,10 +7,11 @@ session_start()
   <meta  charset="utf-8">
   <title>login</title>
   <link rel="stylesheet" type = "text/css" href="login.css" >
+  
 </head>
-  <body text= #68b2a0 >
+  <body  >
     <div id="header"><img src='logo.png' alt=""></div>
-    <h2 style="text-align:center;">Marks management system</h2>
+    <h2 style="text-align:center;">Marks Management System</h2>
   <div  id = "frm" class ="center">
     <h1>Login</h1>
     <form  action = "login.php"   method = "POST">
