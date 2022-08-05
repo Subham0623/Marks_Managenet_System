@@ -6,7 +6,7 @@ session_start()
 <head>
   <meta  charset="utf-8">
   <title>login</title>
-  <link rel="stylesheet" type = "text/css" href="relogin.css" >
+  <link rel="stylesheet" type = "text/css" href="css/relogin.css" >
   
 </head>
   <body  >
