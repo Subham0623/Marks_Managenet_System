@@ -7,44 +7,39 @@ session_start();
 
 if (isset($_POST['Submit'])){
     $connection = mysqli_connect("localhost","root","");
-$db = mysqli_select_db($connection,"markmgmt");
+    $db = mysqli_select_db($connection,"markmgmt");
     $first_name =  $_POST['fullname'];
-        $studentid = $_POST['studentid'];
-        $gender =  $_POST['genderlist'];
-        $birthDate = $_POST['birthDate'];
-        $email = $_POST['email'];
-        $contactnumber =  $_POST['contactnumber'];
-        $password = $_POST['password'];
-        $course = $_POST['courses'];
-        echo '<script type="text/javascript">' .
-          'console.log(' . $gender , $course.');</script>';
-          $query= "SELECT * FROM `studentinfo` WHERE ('studentid'='$studentid')";
+    $studentid = $_POST['studentid'];
+    $gender =  $_POST['genderlist'];
+    $birthDate = $_POST['birthDate'];
+    $email = $_POST['email'];
+    $contactnumber =  $_POST['contactnumber'];
+    $password = $_POST['password'];
+    $course = $_POST['courses'];
+    $query= "SELECT * FROM `studentinfo` WHERE ('studentid'='$studentid')";
     $result=mysqli_query($connection,$query);
     $row= $result -> fetch_row();
     if($row==0 ){
-        if(!empty($gender)&& !empty($course)){
-    $query1= "INSERT INTO `studentinfo`(`full_name`, `student_id`, `dob`, `contact_no`, `gender`, `password`, `email`, `courses`)  
-    VALUES ('$first_name','$studentid','$birthDate','$contactnumber','$gender','$password',' $email','$course')";
-    $result1=mysqli_query($connection,$query1);
-    
-    mysqli_close($connection);
-    header("Location: dashboard.php");
-    die();
-}
-else{
-    $message='Gneder or Course empty';
-
-    echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
+        if(is_int($studentid)){
+            if(!empty($gender)&& !empty($course)){
+                $query1= "INSERT INTO `studentinfo`(`full_name`, `student_id`, `dob`, `contact_no`, `gender`, `password`, `email`, `courses`)  
+                VALUES ('$first_name','$studentid','$birthDate','$contactnumber','$gender','$password',' $email','$course')";
+                $result1=mysqli_query($connection,$query1);
+                mysqli_close($connection);
+                header("Location: dashboard.php");
+                die();
+            }
+            else{
+                echo '<script>alert("Gender or Course empty")</script>';
+            }
+        }
+        else{
+            echo '<script>alert("Student Id can only be integer")</script>';    
+        }
     }
-    
-
-
-}
-else{
-    $message='Student Id already Exixt';
-
-echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
-}
+    else{
+        echo '<script>alert("Student Id already exist")</script>';
+    }
 }
 
 ?> 
@@ -53,7 +48,7 @@ echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type = "text/css" href="css/createprofile2.css" >
+    <link rel="stylesheet" type = "text/css" href="css/createprofile.css" >
     <title>Create profile</title>
 </head>
 <body>
