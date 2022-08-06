@@ -29,7 +29,31 @@ if (isset($_POST['Submit'])){
                 $query2="INSERT INTO `logininfo`(`username`, `password`, `usertype`) VALUES ('$studentid','$password','student')";
                 $result2=mysqli_query($connection,$query2);
                 mysqli_close($connection);
-                header("Location: dashboard.php");
+                $c=strtolower($course);
+                $connection1 = mysqli_connect("localhost","root","");
+                $db1 = mysqli_select_db($connection1,"$c");
+                if($course=="BBA"){
+                    $query3="INSERT INTO `business_law_and_ethics`(`student_id`, `student_name`, `marks`) VALUES ('$studentid','$first_name','0')";    
+                    $result3=mysqli_query($connection1,$query3);
+                    $query4="INSERT INTO `managing_brands`(`student_id`, `student_name`, `marks`) VALUES ('$studentid','$first_name','0')";    
+                    $result4=mysqli_query($connection1,$query4);
+                    $query5="INSERT INTO `personal_finance`(`student_id`, `student_name`, `marks`) VALUES ('$studentid','$first_name','0')";    
+                    $result5=mysqli_query($connection1,$query5);
+                    $query6="INSERT INTO `principles of management`(`student_id`, `student_name`, `marks`) VALUES ('$studentid','$first_name','0')";    
+                    $result6=mysqli_query($connection1,$query6);                
+                }
+
+                else{
+                    $query3="INSERT INTO `big data`(`student_id`, `student_name`, `marks`) VALUES ('$studentid','$first_name','0')";    
+                    $result3=mysqli_query($connection1,$query3);
+                    $query4="INSERT INTO `databases`(`student_id`, `student_name`, `marks`) VALUES ('$studentid','$first_name','0')";    
+                    $result4=mysqli_query($connection1,$query4);
+                    $query5="INSERT INTO `programming`(`student_id`, `student_name`, `marks`) VALUES ('$studentid','$first_name','0')";    
+                    $result5=mysqli_query($connection1,$query5);
+                    $query6="INSERT INTO `project`(`student_id`, `student_name`, `marks`) VALUES ('$studentid','$first_name','0')";    
+                    $result6=mysqli_query($connection1,$query6);
+                }
+                // header("Location: adminhome.html");
                 die();
             }
             else{

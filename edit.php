@@ -9,8 +9,11 @@ if (isset($_GET['delete'])){
     header("Location: studentlist.php");
     die();
 }
-if (isset($_POST['edit'])){
-    $query= "update studentinfo set full_name = '{$_POST['fullname']}', birthDate = '{$_POST['birthDate']}', familyCount = {$_POST['familyCount']}, contactnumber = {$_POST['contactnumber']}, farmingCrops = '{$_POST['farmingCrops']}', productionRate = {$_POST['productionRate']}, marketRate = {$_POST['marketRate']}, farmerRate = {$_POST['farmerRate']} where student_id = {$id} ";
+if (isset($_POST['Submit'])){
+    $query= "UPDATE `studentinfo` SET `full_name`='{$_POST['fullname']}',`student_id`='{$_POST['studentid']}',`dob`='{$_POST['birthDate']}',
+    `contact_no`='{$_POST['contactnumber']}',`gender`='{$_POST['genderlist']}',`password`='{$_POST['password']}',`email`='{$_POST['email']}',
+    `courses`='{$_POST['courses']}' WHERE student_id = {$id}";
+    
     $result=mysqli_query($connection,$query);
     header("Location: studentlist.php");
     die();

@@ -11,7 +11,7 @@ if (isset($_POST['Submit'])){
   $connection = mysqli_connect("localhost","root","");
 $db = mysqli_select_db($connection,"$dbname");
 $mark=$_POST['marks'];
-    $query= "update `$tablename` set  `marks` = " . $_POST['marks'] . " where `student_ id` = ".$id." ";
+    $query= "UPDATE `$tablename` SET `marks`='$mark' WHERE `student_id` = $id";
     $result1=mysqli_query($connection,$query);
     
     header("Location: studentlistinsertmarks.php");
