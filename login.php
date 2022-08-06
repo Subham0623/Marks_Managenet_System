@@ -103,7 +103,7 @@ if(isset($_POST["btn"])){
         else{
           if($username!='admin'){
             $_SESSION["name"]=$_POST['user'];
-            header ("Location: studenthome.html");  
+            header ("Location: studenthome.php");  
         }
         else{  
       

@@ -1,5 +1,5 @@
-<?
-session_start()
+<?php
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -90,7 +90,8 @@ if(isset($_POST["btn"])){
         }
         else if($usertype=='Instructor'){
           if($username!='admin'){
-              $_SESSION["name"]=$_POST['user'];
+            $_SESSION["name"]=$_POST['user'];
+            $_SESSION["pass"]=$_POST['pass'];
               header ("Location: instructorhome.php");  
           }
           else{  
