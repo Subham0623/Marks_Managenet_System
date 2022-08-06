@@ -44,7 +44,7 @@ if (isset($_POST['Submit'])){
                 }
 
                 else{
-                    $query3="INSERT INTO `big data`(`student_id`, `student_name`, `marks`) VALUES ('$studentid','$first_name','0')";    
+                    $query3="INSERT INTO `big_data`(`student_id`, `student_name`, `marks`) VALUES ('$studentid','$first_name','0')";    
                     $result3=mysqli_query($connection1,$query3);
                     $query4="INSERT INTO `databases`(`student_id`, `student_name`, `marks`) VALUES ('$studentid','$first_name','0')";    
                     $result4=mysqli_query($connection1,$query4);

@@ -8,7 +8,7 @@ $stdname = $_SESSION["name"];
  $query= "SELECT * FROM `studentinfo` WHERE `student_id`='$stdname'";
  $result=mysqli_query($connection,$query);
  $row=mysqli_fetch_array($result);
- $_SESSION=$row['courses'];
+ $course=$row['courses'];
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -35,20 +35,54 @@ $stdname = $_SESSION["name"];
             </ul>   
         </nav>
     </div>
+    <h1>Welcome <?php echo $row['full_name']; ?></h1>
+
     
-    <h1 class="heading">MarkSheet</h1>
+    <h3 class="heading">MarkSheet</h3>
      <table class="table">
        <thead>
          <tr>
-                        <th width="20%">subject</th>
-                        <th width="10%">Subject code</th>                        
-                        <th width="5%">credit hrs</th>                       
+                        <th width="20%">Subject</th>                       
+                        <th width="5%">Credit Hrs</th>                       
                         <th width="5%">PM</th>                       
                         <th width="5%">FM</th>                       
                         <th width="5%">Obtained</th>
          </tr>
        </thead>
        <tbody>
+       <?php
+       $connection = mysqli_connect("localhost","root","");
+         $db = mysqli_select_db($connection,"$course");
+         $tables = array();
+         $sql = "SHOW TABLES FROM $course";
+         $result = mysqli_query($connection,$sql);
+         while ($row = mysqli_fetch_row($result)) {
+         $tables[] = $row[0];    
+        }
+        foreach ($tables as $table)  {
+           
+        
+         $sql1="SELECT * FROM $table";
+         $result=mysqli_query($connection,$sql1);
+        $row=mysqli_fetch_array($result)
+         ?>
+
+           <tr>
+           <td data-label="Subject" name= "Subject"> <?php echo $table; ?> </td>
+           <td data-label="Credit Hrs" name= "Credit Hrs"> 4 </td>
+           <td data-label="PM" name= "PM" >40</td>
+           <td data-label="FM" name="FM">100</td>
+           <td data-label="Obtained" name= "Obtained"><?php if($row["marks"]==0){
+            echo "Not graded yet";
+           }
+           else{
+            echo $row["marks"];
+           } ?></td>
+         
+          </tr>
+          <?php
+        }
+          ?>
 
        </tbody>
      </table>
