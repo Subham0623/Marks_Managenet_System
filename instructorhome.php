@@ -26,7 +26,7 @@ session_start();
         </div>
         <div class="buttons">
           <a href="studentlistinsertmarks.php"> <button  type="button" class="primary">Marks Insert</button></a>
-          <a href="studentlist.php"> <button  type="button" class="primary">Notification</button></a>
+          <a href="notification.php"> <button  type="button" class="primary">Notification</button></a>
         </div>
         </div>
     <div class="footer">

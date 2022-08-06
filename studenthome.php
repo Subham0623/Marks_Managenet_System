@@ -9,6 +9,7 @@ $stdname = $_SESSION["name"];
  $result=mysqli_query($connection,$query);
  $row=mysqli_fetch_array($result);
  $course=$row['courses'];
+ $full_name= $row['full_name'];
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -158,6 +159,132 @@ $stdname = $_SESSION["name"];
 </div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="js/response.js"></script>
+<script>
+function getBotResponse(input) {    
+    if (input == "BBA"||input=="bba"||input=="Bba") {        
+        return "Your request for BBA will be register please select the subject you want to concerner <br>1)business_law_and_ethics<br>2)managing_brands<br>3)personal_finance<br>Type bba infront of the number of the subject <br>For eg: bba1";
+    } 
+    else if (input == "BIT"||input=="bit"||input=="Bit") {
+        return "Your request for BBA will be register please select the subject you want to concerner <br>1)big_data<br>2)databases<br>3)programming<br>4)project<br>Type bit infront of the number of the subject <br>For eg: bit1";
+    }
+    else if(input=="BBA1"||input=="bba1"||input=="Bba1"){
+        <?php 
+        
+        
+        $connection = mysqli_connect("localhost","root","");
+        $db = mysqli_select_db($connection,"markmgmt");
+        $query1= "INSERT INTO `notification`( `student_id`, `student_name`, `subject`)  
+        VALUES ('$stdname','$full_name', 'business_law_and_ethics')";
+        $result1=mysqli_query($connection,$query1);
+            
+        ?>
+        
+        return "Notification Send"
+
+    }
+    else if(input=="BBA2"||input=="bba2"||input=="Bba2"){
+        <?php 
+        
+        
+        $connection = mysqli_connect("localhost","root","");
+        $db = mysqli_select_db($connection,"markmgmt");
+        $query1= "INSERT INTO `notification`( `student_id`, `student_name`, `subject`)  
+        VALUES ('$stdname','$full_name', 'managing_brands')";
+        $result1=mysqli_query($connection,$query1);
+            
+        ?>
+        
+        return "Notification Send"
+        
+    }
+    else if(input=="BBA3"||input=="bba3"||input=="Bba3"){
+        <?php 
+        
+        
+        $connection = mysqli_connect("localhost","root","");
+        $db = mysqli_select_db($connection,"markmgmt");
+        $query1= "INSERT INTO `notification`( `student_id`, `student_name`, `subject`)  
+        VALUES ('$stdname','$full_name', 'personal_finance')";
+        $result1=mysqli_query($connection,$query1);
+            
+        ?>
+        
+        return "Notification Send"
+        
+    }
+    else if(input=="BIT1"||input=="bit1"||input=="Bit1"){
+        <?php 
+        
+        
+        $connection = mysqli_connect("localhost","root","");
+        $db = mysqli_select_db($connection,"markmgmt");
+        $query1= "INSERT INTO `notification`( `student_id`, `student_name`, `subject`)  
+        VALUES ('$stdname','$full_name', 'big_data')";
+        $result1=mysqli_query($connection,$query1);
+            
+        ?>
+        
+        return "Notification Send"
+        
+
+    }
+    else if(input=="BIT2"||input=="bit2"||input=="Bit2"){
+        <?php 
+        
+        
+        $connection = mysqli_connect("localhost","root","");
+        $db = mysqli_select_db($connection,"markmgmt");
+        $query1= "INSERT INTO `notification`( `student_id`, `student_name`, `subject`)  
+        VALUES ('$stdname','$full_name', 'databases')";
+        $result1=mysqli_query($connection,$query1);
+            
+        ?>
+        
+        return "Notification Send"
+    
+    }
+    else if(input=="BIT3"||input=="bit3"||input=="Bit3"){
+        <?php 
+        
+        
+        $connection = mysqli_connect("localhost","root","");
+        $db = mysqli_select_db($connection,"markmgmt");
+        $query1= "INSERT INTO `notification`( `student_id`, `student_name`, `subject`)  
+        VALUES ('$stdname','$full_name', 'programming')";
+        $result1=mysqli_query($connection,$query1);
+            
+        ?>
+        
+        return "Notification Send"
+    
+    }
+    else if(input=="BIT4"||input=="bit4"||input=="Bit4"){
+        <?php 
+        
+        
+        $connection = mysqli_connect("localhost","root","");
+        $db = mysqli_select_db($connection,"markmgmt");
+        $query1= "INSERT INTO `notification`( `student_id`, `student_name`, `subject`)  
+        VALUES ('$stdname','$full_name', 'project')";
+        $result1=mysqli_query($connection,$query1);
+            
+        ?>
+        
+        return "Notification Send"
+    
+    }
+  
+    //  else if (input == "Nepali") {
+    //     return "Your request have been register is there anyother subject teacher u want to concerner";
+    // }
+    // Simple responses
+    else if (input == "hello"||input=="hi"||input=="Hi"||input=="HI"||input=="HELLO"||input=="Hello") {
+        return "Hello there!";
+    } else if (input == "goodbye"||input=="bye"||input=="Bye"||input=="BYE"||input=="Goodbye"||input=="GOODBYE"||input=="NO"||input=="no"||input=="No") {
+        return "Talk to you later!";
+    } else {
+        return "Couldn't understand that try asking something else!";
+    }
+}</script>
 <script src="js/chat.js"></script>
 </html>
