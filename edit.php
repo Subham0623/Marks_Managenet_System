@@ -10,7 +10,7 @@ if (isset($_GET['delete'])){
     die();
 }
 if (isset($_POST['edit'])){
-    $query= "update studentinfo set full_name = '{$_POST['fullname']}', birthDate = '{$_POST['birthDate']}', familyCount = {$_POST['familyCount']}, contactnumber = {$_POST['contactnumber']}, farmingCrops = '{$_POST['farmingCrops']}', productionRate = {$_POST['productionRate']}, marketRate = {$_POST['marketRate']}, farmerRate = {$_POST['farmerRate']} where id = {$id} ";
+    $query= "update studentinfo set full_name = '{$_POST['fullname']}', birthDate = '{$_POST['birthDate']}', familyCount = {$_POST['familyCount']}, contactnumber = {$_POST['contactnumber']}, farmingCrops = '{$_POST['farmingCrops']}', productionRate = {$_POST['productionRate']}, marketRate = {$_POST['marketRate']}, farmerRate = {$_POST['farmerRate']} where student_id = {$id} ";
     $result=mysqli_query($connection,$query);
     header("Location: studentlist.php");
     die();
@@ -88,11 +88,18 @@ $row=mysqli_fetch_array($result);
                 <div class="course">
                     <span class="details">Course</span>
                        
-                    <div>
+                    <div>                       
                         <select name="courses" id="coursess">
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                        <option value="Others">Others</option>
+                        <?php
+                         $connection = mysqli_connect("localhost","root","");
+                         $db = mysqli_select_db($connection,"markmgmt");
+                         $sql="SELECT * FROM courseinfo";
+                         $result=mysqli_query($connection,$sql);
+                         while($row=mysqli_fetch_array($result)){
+                         ?>
+                        <option value=<?php echo "{$row['course_name']}"?>><?php echo "{$row['course_name']}"?></option>
+                        <?php }?>
+                        
                     </select>
                 </div> 
                 </div>  

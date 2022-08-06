@@ -1,5 +1,6 @@
-<?
-session_start()
+<?php
+session_start();
+
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -87,9 +88,11 @@ if(isset($_POST["btn"])){
             header ("Location: relogin.php");  
           }
         }
-        else if($usertype=='Instructor'){
+        else if($usertype=='instructor'){
           if($username!='admin'){
               $_SESSION["name"]=$_POST['user'];
+              $_SESSION["pass"]=$_POST['pass'];
+              
               header ("Location: instructorhome.php");  
           }
           else{  
@@ -100,7 +103,7 @@ if(isset($_POST["btn"])){
         else{
           if($username!='admin'){
             $_SESSION["name"]=$_POST['user'];
-            header ("Location: studenthome.php");  
+            header ("Location: studenthome.html");  
         }
         else{  
       

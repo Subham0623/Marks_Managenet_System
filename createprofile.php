@@ -57,9 +57,9 @@ if (isset($_POST['Submit'])){
                 <h2>Marks Management System</h2>
                 <nav>
                     <ul>
-                        <li><a href="">HOME</a></li>
-                        <li><a href="aboutstudent.html">ABOUT</a></li>
-                        <li><a href="contactstudent.html">CONTACT</a></li>
+                        <li><a href="adminhome.html">HOME</a></li>
+                        <li><a href="about.html">ABOUT</a></li>
+                        <li><a href="contact.html">CONTACT</a></li>
                     </ul>   
                 </nav>
             </div>
@@ -108,11 +108,18 @@ if (isset($_POST['Submit'])){
                 <div class="course">
                     <span class="details">Course</span>
                        
-                    <div>
+                    <div>                       
                         <select name="courses" id="coursess">
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                        <option value="Others">Others</option>
+                        <?php
+                         $connection = mysqli_connect("localhost","root","");
+                         $db = mysqli_select_db($connection,"markmgmt");
+                         $sql="SELECT * FROM courseinfo";
+                         $result=mysqli_query($connection,$sql);
+                         while($row=mysqli_fetch_array($result)){
+                         ?>
+                        <option value=<?php echo "{$row['course_name']}"?>><?php echo "{$row['course_name']}"?></option>
+                        <?php }?>
+                        
                     </select>
                 </div> 
                 </div>  

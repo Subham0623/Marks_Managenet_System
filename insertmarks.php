@@ -1,3 +1,28 @@
+<?php
+session_start();
+?>
+<?php
+$tablename = $_SESSION["name"];
+$dbname = $_SESSION["pass"];
+$id = $_GET['id'];
+$connection = mysqli_connect("localhost","root","");
+$db = mysqli_select_db($connection,"$dbname");
+if (isset($_POST['Submit'])){
+  $connection = mysqli_connect("localhost","root","");
+$db = mysqli_select_db($connection,"$dbname");
+$mark=$_POST['marks'];
+    $query= "update `$tablename` set  `marks` = " . $_POST['marks'] . " where `student_ id` = ".$id." ";
+    $result1=mysqli_query($connection,$query);
+    
+    header("Location: studentlistinsertmarks.php");
+    die();
+}
+$sql="SELECT * FROM `$tablename` where student_id = {$id}";
+// $result=mysqli_query($connection,$sql);
+$result=$connection->query($sql);
+$row=mysqli_fetch_array($result);
+   
+?>
 <html>
 <head>
 <meta  charset="utf-8">
@@ -16,17 +41,28 @@
             </ul>   
         </nav>
     </div>
-  <h1>Enter data for Student</h1>
-  <div class="insert">
-    <label>Student Id:</label>
-    <br><input type="text" name="student_id"/></br>
-    <label>Full Name:</label><br>
-    <input type="text" name="full_name"/></br>
-    <label>Mark:</label><br>
-    <input type="text" name="mark"/></br>
-    </br>
-    <input type="submit" name="OK" />
-  </div>
+    <form  method="post">
+            <div class ="user-details">
+                <div class="fullname">
+                <span class="details">Full Name</span>
+                    <input type="text"  value= <?php echo "'{$row['student_name']}'"?> placeholder="Enter your Full Name" required name="fullname"/>    
+                </div>
+                <div class="studentid">
+                    <span class="details">Student ID</span>
+                    <input type="text" value= <?php echo "'{$row['student_id']}'"?> placeholder="Enter Student ID"  required name="studentid" /> 
+                </div>
+                <div class="marks">
+                    <span class="details">Student ID</span>
+                    <input type="text" value= <?php echo "'{$row['marks']}'"?>placeholder="Enter Marks"  required name="marks" /> 
+                </div>
+                    <!-- Submitting the file if pressed at create button  -->
+                    <div class="button1">
+                        <input type="Submit" value="Submit" name="Submit">    
+                    </div>  
+                    
+
+            </div>
+        </form>
 </div>
 <div class="footer">
     <p1>Copyright © 2022, Marks Management System. All Right Reserved.</p1>
