@@ -10,19 +10,41 @@ if (isset($_POST['Submit'])){
 $db = mysqli_select_db($connection,"markmgmt");
     $first_name =  $_POST['fullname'];
         $studentid = $_POST['studentid'];
-        $gender =  $_POST['gender'];
+        $gender =  $_POST['genderlist'];
         $birthDate = $_POST['birthDate'];
         $email = $_POST['email'];
         $contactnumber =  $_POST['contactnumber'];
         $password = $_POST['password'];
-        $course = $_POST['course'];
-    $query= "INSERT INTO `studentinfo`(`full_name`, `student_id`, `dob`, `contact_no`, `gender`, `password`, `email`, `courses`)  
-    VALUES ('$first_name','$studentid','$birthDate','$contactnumber','$gender','$password',' $email','$course')";
+        $course = $_POST['courses'];
+        echo '<script type="text/javascript">' .
+          'console.log(' . $gender , $course.');</script>';
+          $query= "SELECT * FROM `studentinfo` WHERE ('studentid'='$studentid')";
     $result=mysqli_query($connection,$query);
+    $row= $result -> fetch_row();
+    if($row==0 ){
+        if(!empty($gender)&& !empty($course)){
+    $query1= "INSERT INTO `studentinfo`(`full_name`, `student_id`, `dob`, `contact_no`, `gender`, `password`, `email`, `courses`)  
+    VALUES ('$first_name','$studentid','$birthDate','$contactnumber','$gender','$password',' $email','$course')";
+    $result1=mysqli_query($connection,$query1);
     
     mysqli_close($connection);
     header("Location: dashboard.php");
     die();
+}
+else{
+    $message='Gneder or Course empty';
+
+    echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
+    }
+    
+
+
+}
+else{
+    $message='Student Id already Exixt';
+
+echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
+}
 }
 
 ?> 
@@ -61,7 +83,7 @@ $db = mysqli_select_db($connection,"markmgmt");
                 </div>
                 <div class="birthDate">
                     <span class="details">Birth date</span>
-                    <input type="text"  placeholder="Enter in B.S." required name="birthDate" />    
+                    <input type="date"  placeholder="Enter the dob" required name="birthDate" />    
                 </div>
                 
                 <div class="contactnumber">
@@ -72,7 +94,7 @@ $db = mysqli_select_db($connection,"markmgmt");
                     <span class="details">Gender</span>
                        
                     <div>
-                        <select name="dropdown" id="dropdown" name="gender">
+                        <select name="genderlist" id="genderl" >
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                         <option value="Others">Others</option>
@@ -92,7 +114,7 @@ $db = mysqli_select_db($connection,"markmgmt");
                     <span class="details">Course</span>
                        
                     <div>
-                        <select name="dropdown" id="dropdown" name="course">
+                        <select name="courses" id="coursess">
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                         <option value="Others">Others</option>

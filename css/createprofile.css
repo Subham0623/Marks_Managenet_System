@@ -1,4 +1,6 @@
 *{
+    margin:0;
+    padding: 0;
 
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
@@ -28,36 +30,6 @@ h3 {
     background-size: cover;
     padding-left: 8%;
     padding-right: 8%;
-    box-sizing: border-box;
-}
-table {
-    font-family: verdana;
-    color:var(--letter);
-    font-size: 15px;
-    font-style: normal;
-    font-weight: bold;
-    /* background: linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%); */
-    background: #9ff1f1;
-}
-
-table.inner {
-    border: 10px
-}
-
-input[type=text],
-input[type=email],
-input[type=number] {
-    width: 50%;
-    padding: 6px 12px;
-    margin: 5px 0;
-    box-sizing: border-box;
-}
-
-input[type=submit],
-input[type=reset] {
-    width: 15%;
-    padding: 8px 12px;
-    margin: 5px 0;
     box-sizing: border-box;
 }
 .footer {  
@@ -98,3 +70,265 @@ nav ul li a{
     position:absolute; 
     top:30px;
 }
+.cp{
+    margin-left: 30px;
+    margin-top: 40px;
+}
+/* asdasd */
+.container form .user-details{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-between ;
+    margin: 20px 0 12px 0;
+}
+.fullname{
+    margin-left: 250px;
+    margin-top: 30px;
+}
+.user-details .fullname	 .details{
+    display: block;
+    font-size: 22;
+   font-weight:500 ; 
+   margin-bottom:5px ;
+   color: #68b2a0;
+    
+}
+.user-details .fullname input{
+    height: 45px;
+    width: 320px;
+    outline:none;
+    border-radius: 5px;
+    border:1px solid #ccc;
+    padding-left:15px;
+    font-size:16px;
+    border-bottom-width:2px;
+    transition:all 0.3s ease;
+    margin-bottom: 10px;
+}
+.studentid{
+    margin-right: 300px;
+    margin-top: 30px;
+
+}
+.user-details .studentid .details{
+    display: block ;
+    font-size: 22;
+   font-weight:500 ; 
+   margin-bottom:5px ;
+   color: #68b2a0;
+   margin-left: -125;
+   
+}
+.user-details .studentid input{
+    height: 45px;
+    width: 155%;
+    outline:none;
+    border-radius: 5px;
+    border:1px solid #ccc;
+    padding-left: 10%;
+    font-size:16px;
+    border-bottom-width:2px;
+    margin-left: -70%;
+    transition:all 0.3s ease;
+    margin-bottom: 10px;
+}
+.birthDate{
+    margin-left: 250px;
+    margin-top: 30px;
+
+}
+.user-details .birthDate .details{
+    display: block;
+    font-size: 22;
+   font-weight:500 ; 
+   margin-bottom:5px ;
+   color: #68b2a0;
+   
+}
+.user-details .birthDate input{
+    height: 45px;
+    width: 320px;
+    outline:none;
+    border-radius: 5px;
+    border:1px solid #ccc;
+    padding-left:15px;
+    font-size:16px;
+    border-bottom-width:2px;
+    transition:all 0.3s ease;
+    margin-bottom: 10px;
+}
+.contactnumber{
+    margin-right: 300px;
+    margin-top: 30px;
+}
+.user-details .contactnumber .details{
+    display: block ;
+    font-size: 22;
+   font-weight:500 ; 
+   margin-bottom:5px ;
+   color: #68b2a0;
+   margin-left: -125; 
+}
+.user-details .contactnumber input{
+    height: 45px;
+    width: 155%;
+    outline:none;
+    border-radius: 5px;
+    border:1px solid #ccc;
+    padding-left: 10%;
+    font-size:16px;
+    border-bottom-width:2px;
+    margin-left: -70%;
+    transition:all 0.3s ease;
+    margin-bottom: 10px;
+}
+
+.gender{
+    margin-left: 250px;
+    margin-top: 30px;
+}
+
+.user-details .gender .details{
+    display: block;
+   font-weight:500 ; 
+   font-size: 22;
+   margin-bottom:5px ;
+   color: #68b2a0;
+   
+   
+}
+.email{
+    margin-right: 300px;
+    margin-top: 30px;
+
+}
+
+.user-details .email .details{
+    display: block ;
+    font-size: 22;
+   font-weight:500 ; 
+   margin-bottom:5px ;
+   color: #68b2a0;
+   margin-left: -125;
+   
+}
+.user-details .email input{
+    height: 45px;
+    width: 155%;
+    outline:none;
+    border-radius: 5px;
+    border:1px solid #ccc;
+    padding-left: 10%;
+    font-size:16px;
+    border-bottom-width:2px;
+    margin-left: -70%;
+    transition:all 0.3s ease;
+    margin-bottom: 10px;
+}
+.password{
+    margin-left: 250px;
+    margin-top: 30px;
+
+}
+.user-details .password .details{
+    display: block;
+    font-size: 22;
+   font-weight:500 ; 
+   margin-bottom:5px ;
+   color: #68b2a0;
+   
+}
+.user-details .password input{
+    height: 45px;
+    width: 320px;
+    outline:none;
+    border-radius: 5px;
+    border:1px solid #ccc;
+    padding-left:15px;
+    font-size:16px;
+    border-bottom-width:2px;
+    transition:all 0.3s ease;
+    margin-bottom: 10px;
+}
+
+.course{
+    margin-right: 550px;
+    margin-top: 30px;
+}
+
+.user-details .course .details{
+    display: block;
+   font-weight:500 ; 
+   font-size: 22;
+   margin-bottom:5px ;
+   color: #68b2a0;
+   
+   
+}
+#genderl{
+    height:50px;
+    width: 100px;
+    outline:none;
+    position:absolute;
+    
+    width: 100px;
+    border-radius: 5px;
+    border:1px solid #ccc;
+    padding-left:10px;
+    padding-bottom: 5px;
+    font-size:16px;
+    border-bottom-width:2px;
+    
+
+   
+}
+#coursess{
+    height:50px;
+    width: 100px;
+    outline:none;
+    position:absolute;
+    
+    width: 100px;
+    border-radius: 5px;
+    border:1px solid #ccc;
+    padding-left:10px;
+    padding-bottom: 5px;
+    font-size:16px;
+    border-bottom-width:2px;
+    
+
+   
+}
+
+.title{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 38px;
+    color: #68b2a0;
+}
+
+
+form .button1{
+    height:45px;
+    width: 100px;
+    
+    margin-top: 50px;
+    margin-right: 300px;
+    margin-left: 550px;
+    
+    top: 55px;
+   
+}
+
+form .button1 input{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    color: #fff;
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    background: linear-gradient(120deg,#5aa7a7 , #cde0c9);
+}
+
