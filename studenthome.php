@@ -39,7 +39,7 @@ $stdname = $_SESSION["name"];
 
     
     <h3 class="heading">MarkSheet</h3>
-     <table class="table">
+     <table id="table">
        <thead>
          <tr>
                         <th width="20%">Subject</th>                       
@@ -86,8 +86,27 @@ $stdname = $_SESSION["name"];
 
        </tbody>
      </table>
-</div>
+     <input type="button" id="btnExport" value="Export" onclick="Export()" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <script type="text/javascript">
+        function Export() {
+            html2canvas(document.getElementById('table'), {
+                onrendered: function (canvas) {
+                    var data = canvas.toDataURL();
+                    var docDefinition = {
+                        content: [{
+                            image: data,
+                            width: 500
+                        }]
+                    };
+                    pdfMake.createPdf(docDefinition).download("Table.pdf");
+                }
+            });
+        }
+    </script>
 
+</div>
 
 </div>
  <!-- CHAT BAR BLOCK -->
@@ -130,8 +149,9 @@ $stdname = $_SESSION["name"];
                     </div>
     
                 </div>
+                
             </div>
-     
+        
   </div>  
  <div class="footer">
     <p1>Copyright © 2022, Marks Management System. All Right Reserved.</p1>
