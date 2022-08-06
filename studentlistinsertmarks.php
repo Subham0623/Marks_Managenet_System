@@ -5,7 +5,7 @@ session_start();
 <html lang="en" dir="ltr">
 <head>
     <meta  charset="utf-8">
-    <title>studentlist</title>
+    <title>Student Insert Marks</title>
     <link rel="stylesheet" type="text/css" href="css/studentlist.css">
 </head>
 <body>

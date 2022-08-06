@@ -26,7 +26,7 @@ $row=mysqli_fetch_array($result);
 <html>
 <head>
 <meta  charset="utf-8">
-  <title>insertmark</title>
+  <title>Insert Mark</title>
   <link rel="stylesheet" type = "text/css" href="css/insertmarks.css" >
 </head>
 <body>

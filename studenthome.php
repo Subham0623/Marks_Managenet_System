@@ -15,7 +15,7 @@ $stdname = $_SESSION["name"];
 <html lang="en" dir="ltr">
 <head>
   <meta  charset="utf-8">
-  <title>Studen Home</title>
+  <title>Student Home</title>
   <link rel="stylesheet" type = "text/css" href="css/studenthome.css" >
   <link rel="stylesheet" href="css/chat.css">
   <link rel="stylesheet" href="css/chatbothome.css">

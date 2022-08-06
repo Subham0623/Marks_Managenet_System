@@ -68,3 +68,15 @@ nav ul li a{
     color: var(--letter);    
     text-align: center; 
     }
+.notification{
+    height: 60px;
+    left: 10px;   
+    right: 10px;   
+    width: 1200px; 
+    font-size: 20px; 
+    border-radius: 30px;
+    margin-top: 10px;
+    background-color:#435aa5;
+    color: white;    
+    text-align: center; 
+}

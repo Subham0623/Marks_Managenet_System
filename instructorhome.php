@@ -5,7 +5,7 @@ session_start();
 <html lang="en" dir="ltr">
 <head>
   <meta  charset="utf-8">
-  <title>login</title>
+  <title>]Instructor Home</title>
   <link rel="stylesheet" type = "text/css" href="css/instructorhome.css" >
 </head>
   <body>

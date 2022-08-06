@@ -35,8 +35,7 @@ session_start();
          while($row=mysqli_fetch_array($result)){
          ?>
             <tr>
-                <td>You have got an request for the meeting from a student whose student id is <?php echo $row['student_id'];?> and his name is <?php echo $row['student_name'];?></td>
-
+                <td class = "notification">You have got an request for the meeting from a student whose student id is <?php echo $row['student_id'];?> and his name is <?php echo $row['student_name'];?></td>
             </tr>
             <?php } ?>
         </table>

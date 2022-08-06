@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 <head>
     <meta  charset="utf-8">
-    <title>studentlist</title>
+    <title>Student List</title>
     <link rel="stylesheet" type="text/css" href="css/studentlist.css">
 </head>
 <body>
