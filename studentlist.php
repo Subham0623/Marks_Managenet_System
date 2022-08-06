@@ -21,11 +21,7 @@
 
         <div class="table-container">
     
-     <h1 class="heading">Farmer Details</h1>
-     <div class="add">
-      <h5>Student Detail</h5>
-      
-        </div>
+     <h1 class="heading">Student Details</h1>
      <table class="table">
        <thead>
          <tr>
