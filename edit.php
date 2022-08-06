@@ -1,48 +1,28 @@
 <?php
-session_start();
-?>
-<?php
 
-
-
-if (isset($_POST['Submit'])){
-    $connection = mysqli_connect("localhost","root","");
-    $db = mysqli_select_db($connection,"markmgmt");
-    $first_name =  $_POST['fullname'];
-    $studentid = $_POST['studentid'];
-    $gender =  $_POST['genderlist'];
-    $birthDate = $_POST['birthDate'];
-    $email = $_POST['email'];
-    $contactnumber =  $_POST['contactnumber'];
-    $password = $_POST['password'];
-    $course = $_POST['courses'];
-    $query= "SELECT * FROM `studentinfo` WHERE ('studentid'='$studentid')";
+$id = $_GET['id'];
+$connection = mysqli_connect("localhost","root","");
+$db = mysqli_select_db($connection,"markmgmt");
+if (isset($_GET['delete'])){
+    $query="delete from studentinfo where student_id= {$id}";
     $result=mysqli_query($connection,$query);
-    $row= $result -> fetch_row();
-    if($row==0 ){
-        
-            if(!empty($gender)&& !empty($course)){
-                $query1= "INSERT INTO `studentinfo`(`full_name`, `student_id`, `dob`, `contact_no`, `gender`, `password`, `email`, `courses`)  
-                VALUES ('$first_name','$studentid','$birthDate','$contactnumber','$gender','$password',' $email','$course')";
-                $result1=mysqli_query($connection,$query1);
-                
-                $query2="INSERT INTO `logininfo`(`username`, `password`, `usertype`) VALUES ('$studentid','$password','student')";
-                $result2=mysqli_query($connection,$query2);
-                mysqli_close($connection);
-                header("Location: dashboard.php");
-                die();
-            }
-            else{
-                echo '<script>alert("Gender or Course empty")</script>';
-            }
-        }
-       
-    else{
-        echo '<script>alert("Student Id already exist")</script>';
-    }
+    header("Location: studentlist.php");
+    die();
 }
+if (isset($_POST['edit'])){
+    $query= "update studentinfo set full_name = '{$_POST['fullname']}', birthDate = '{$_POST['birthDate']}', familyCount = {$_POST['familyCount']}, contactnumber = {$_POST['contactnumber']}, farmingCrops = '{$_POST['farmingCrops']}', productionRate = {$_POST['productionRate']}, marketRate = {$_POST['marketRate']}, farmerRate = {$_POST['farmerRate']} where id = {$id} ";
+    $result=mysqli_query($connection,$query);
+    header("Location: studentlist.php");
+    die();
+}
+$sql="SELECT * FROM studentinfo where student_id = {$id}";
+// $result=mysqli_query($connection,$sql);
+$result=$connection->query($sql);
+$row=mysqli_fetch_array($result);
+   
+?>
+<!-- using html and php for making detail farmer form -->
 
-?> 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -58,8 +38,8 @@ if (isset($_POST['Submit'])){
                 <nav>
                     <ul>
                         <li><a href="">HOME</a></li>
-                        <li><a href="aboutstudent.html">ABOUT</a></li>
-                        <li><a href="contactstudent.html">CONTACT</a></li>
+                        <li><a href="about.html">ABOUT</a></li>
+                        <li><a href="contact.html">CONTACT</a></li>
                     </ul>   
                 </nav>
             </div>
@@ -69,21 +49,21 @@ if (isset($_POST['Submit'])){
             <form  method="post">
             <div class ="user-details">
                 <div class="fullname">
-                    <span class="details">Full Name</span>
-                    <input type="text"  placeholder="Enter your Full Name" required name="fullname"/>    
+                <span class="details">Full Name</span>
+                    <input type="text"  value= <?php echo "'{$row['full_name']}'"?> placeholder="Enter your Full Name" required name="fullname"/>    
                 </div>
                 <div class="studentid">
                     <span class="details">Student ID</span>
-                    <input type="text"  placeholder="Enter Student ID"  required name="studentid" /> 
+                    <input type="text" value= <?php echo "'{$row['student_id']}'"?> placeholder="Enter Student ID"  required name="studentid" /> 
                 </div>
                 <div class="birthDate">
                     <span class="details">Birth date</span>
-                    <input type="date"  placeholder="Enter the dob" required name="birthDate" />    
+                    <input type="date" value= <?php echo "'{$row['dob']}'"?> placeholder="Enter the dob" required name="birthDate" />    
                 </div>
                 
                 <div class="contactnumber">
                     <span class="details">Contact Number</span>
-                    <input type="text"  placeholder="Enter the contact number" required name="contactnumber" />    
+                    <input type="text" value= <?php echo "'{$row['contact_no']}'"?> placeholder="Enter the contact number" required name="contactnumber" />    
                 </div>
                  <div class="gender">
                     <span class="details">Gender</span>
@@ -99,11 +79,11 @@ if (isset($_POST['Submit'])){
                 
                 <div class="email">
                     <span class="details">Email</span>
-                    <input type="text"   placeholder="Enter the Email" required name="email" />    
+                    <input type="text" value= <?php echo "'{$row['password']}'"?>  placeholder="Enter the Email" required name="email" />    
                 </div>  
                 <div class="password">
                     <span class="details">Password</span>
-                    <input type="password"   placeholder="Enter the Password" required name="password" />    
+                    <input type="password" value= <?php echo "'{$row['email']}'"?>  placeholder="Enter the Password" required name="password" />    
                 </div>
                 <div class="course">
                     <span class="details">Course</span>
