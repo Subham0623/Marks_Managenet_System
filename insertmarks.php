@@ -38,6 +38,7 @@ $row=mysqli_fetch_array($result);
                 <li><a href="instructorhome.css">HOME</a></li>
                 <li><a href="">ABOUT</a></li>
                 <li><a href="contactinstructor.html">CONTACT</a></li>
+                <li><a href="login.php">Log out</a></li>
             </ul>   
         </nav>
     </div>

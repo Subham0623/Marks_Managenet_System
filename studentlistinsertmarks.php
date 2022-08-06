@@ -17,6 +17,7 @@ session_start();
                     <li><a href="adminhome.html">HOME</a></li>
                     <li><a href="about.html">ABOUT</a></li>
                     <li><a href="">CONTACT</a></li>
+                    <li><a href="login.php">Log out</a></li>
                 </ul>   
             </nav>
         </div>

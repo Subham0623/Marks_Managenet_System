@@ -31,15 +31,27 @@ $stdname = $_SESSION["name"];
                 <li><a href="">HOME</a></li>
                 <li><a href="aboutstudent.html">ABOUT</a></li>
                 <li><a href="contactstudent.html">CONTACT</a></li>
+                <li><a href="login.php">Log out</a></li>
             </ul>   
         </nav>
     </div>
     
-<div class="greeting">
-    <h1 style="margin-bottom: 50px;">Welcome <?php echo $row["full_name"]; ?></h1>
-    <h3>Marksheet</h3>
-</div>
+    <h1 class="heading">MarkSheet</h1>
+     <table class="table">
+       <thead>
+         <tr>
+                        <th width="20%">subject</th>
+                        <th width="10%">Subject code</th>                        
+                        <th width="5%">credit hrs</th>                       
+                        <th width="5%">PM</th>                       
+                        <th width="5%">FM</th>                       
+                        <th width="5%">Obtained</th>
+         </tr>
+       </thead>
+       <tbody>
 
+       </tbody>
+     </table>
 </div>
 
 

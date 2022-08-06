@@ -53,7 +53,7 @@ if (isset($_POST['Submit'])){
                     $query6="INSERT INTO `project`(`student_id`, `student_name`, `marks`) VALUES ('$studentid','$first_name','0')";    
                     $result6=mysqli_query($connection1,$query6);
                 }
-                // header("Location: adminhome.html");
+                header("Location: adminhome.html");
                 die();
             }
             else{
@@ -84,6 +84,7 @@ if (isset($_POST['Submit'])){
                         <li><a href="adminhome.html">HOME</a></li>
                         <li><a href="about.html">ABOUT</a></li>
                         <li><a href="contact.html">CONTACT</a></li>
+                        <li><a href="login.php">Log out</a></li>
                     </ul>   
                 </nav>
             </div>
